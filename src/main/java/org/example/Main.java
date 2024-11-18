@@ -1,18 +1,20 @@
 package org.example;
 
-//TIP コードを<b>実行</b>するには、<shortcut actionId="Run"/> を押すか
-// ガターの <icon src="AllIcons.Actions.Execute"/> アイコンをクリックします。
+import java.util.Scanner;
+
 public class Main {
 
   public static void main(String[] args) {
-    //TIP ハイライトされたテキストにキャレットがある状態で <shortcut actionId="ShowIntentionActions"/> を押すと
-    // IntelliJ IDEA によるその修正案を確認できます。
-    System.out.printf("Hello and welcome!");
-
-    for (int i = 1; i <= 5; i++) {
-      //TIP <shortcut actionId="Debug"/> を押してコードのデバッグを開始します。<icon src="AllIcons.Debugger.Db_set_breakpoint"/> ブレークポイントを 1 つ設定しましたが、
-      // <shortcut actionId="ToggleLineBreakpoint"/> を押すといつでも他のブレークポイントを追加できます。
-      System.out.println("i = " + i);
+    Scanner scanner = new Scanner(System.in);
+    System.out.print("携帯電話番号を入力してください: ");
+    String phoneNumber = scanner.next();
+//    070/080/090/060から始まる
+//    残りは8桁で合計11桁
+//    ハイフンで3桁-4桁-4桁で区切る
+    if (phoneNumber.matches("^(070|080|090|060)-\\d{4}-\\d{4}$")) {
+      System.out.println(phoneNumber + "は有効な携帯電話番号です。");
+    } else {
+      System.out.println(phoneNumber + "は無効な携帯電話番号です。");
     }
   }
 }
